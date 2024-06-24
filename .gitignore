@@ -19,3 +19,5 @@ hubert_base.pt
 *.dll
 *.dylib
 *.egg-info
+
+train_rvc/
