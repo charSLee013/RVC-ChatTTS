@@ -244,7 +244,8 @@ class GPT_warpper(nn.Module):
                 # 这样就可以确保我们预先输入文本的为有效序列，避免引入无效的注意力信息
                 attention_mask_cache[:, :attention_mask.shape[1]] = attention_mask
             
-            for i in tqdm(range(max_new_token)):
+            # for i in tqdm(range(max_new_token)):
+            for i in range(max_new_token):
                 # 在生成过程中，每次迭代都会调用这段代码，以确保模型在每一步都能正确处理输入数据。
                 # 通过传递 past_key_values 和更新的注意力掩码，模型可以高效地生成新的 token，而不必重复计算所有先前的 token 的注意力权重。
                 model_input = self.prepare_inputs_for_generation(
